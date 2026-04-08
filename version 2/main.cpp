@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <conio.h>
@@ -16,7 +17,25 @@ void renderLines(const vector<string>& lines){
     }
 }
 
-int main(){
+void fileWrite(string fileName, const vector<string>& lines){
+    ofstream file;
+    file.open(fileName);
+    for(const auto& line : lines){
+        file << line << "\n";
+    }
+    file.close();
+}
+
+int main(int argc, char* argv[]){
+
+    string fileName = "";
+    //Command Line Argument Handle
+    if(argc > 1 && string(argv[1]) != ""){
+        fileName = argv[1];
+    }
+    
+
+
     vector<string> lines = {""};
     int cursorX = 0;
     int cursorY = 0;
@@ -28,7 +47,13 @@ int main(){
         int characterInput = _getch();
 
         //1. EXIT (CTRL+Q)
-        if(characterInput == 17) break;
+        if(characterInput == 17){
+            if(fileName == ""){
+                cout << "File Name: ";
+                cin >> fileName;
+            }
+            break;
+        }
 
         //2. Enter
         else if(characterInput == 13){
@@ -62,8 +87,8 @@ int main(){
         // LAST EXUCITON
         renderLines(lines);
     }
-
-    // getchar();
-
+    cout << fileName << endl;
+    fileWrite(fileName, lines);
+    
     return 0;
 }
