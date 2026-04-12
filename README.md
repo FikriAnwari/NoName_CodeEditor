@@ -1,4 +1,5 @@
 # [No Name] Code Editor <br>
+#### STATUS : DEPRECATED <br>
 ini adalah proyek kode editor berbasis terminal ku. Tujuannya dibuat nya proyek ini adalah hanya sekedar pengen buat aja karena kayanya aku ga pernah bikin proyek 
 kodingan apapun yg memang ku kerjakan untuk diriku sendiri :) <br> <br>
 [Version 1] adalah kode yg gagal <br>
